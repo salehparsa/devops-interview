@@ -15,7 +15,7 @@ on:
 
 env:
   
-  IMAGE_NAME: devop-interview
+  IMAGE_NAME: devops-interview
 
 jobs:
   # Run tests.
