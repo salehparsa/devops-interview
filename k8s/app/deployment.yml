@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-interview
+spec:
+  selector:
+    matchLabels:
+      app: devops-interview
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: devops-interview
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "5000"
+    spec:
+      containers:
+      - name: devops-interview
+        image: ghcr.io/salehparsa/devops-interview
+        ports:
+        - containerPort: 5000
+        resources:
+          limits:
+            memory: "128Mi"
