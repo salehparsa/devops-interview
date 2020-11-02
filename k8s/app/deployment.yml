@@ -17,7 +17,9 @@ spec:
     spec:
       containers:
       - name: devops-interview
-        image: ghcr.io/salehparsa/devops-interview
+        image: ghcr.io/salehparsa/devops-interview:latest
+        command: ["/bin/bash"]
+        args: ["-c flask db upgrade && python app.py run -h 0.0.0.0"]
         ports:
         - containerPort: 5000
         resources:
