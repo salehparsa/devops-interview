@@ -18,8 +18,11 @@ spec:
       containers:
       - name: devops-interview
         image: ghcr.io/salehparsa/devops-interview:latest
+        imagePullPolicy: Always
         command: ["/bin/sh"]
-        args: ["-c flask db upgrade && python app.py run -h 0.0.0.0"]
+        args: 
+          - "-c flask db upgrade"
+          - "python app.py run -h 0.0.0.0"
         ports:
         - containerPort: 5000
         resources:
