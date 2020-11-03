@@ -1,4 +1,4 @@
-FROM python:3.6.12
+FROM python:3.6.12-slim
 
 WORKDIR /usr/src/app
 
@@ -13,5 +13,3 @@ RUN pip install -r requirements.txt
 COPY . /usr/src/app/
 
 RUN chmod +x /usr/src/app/app.py
-
-ENTRYPOINT ["/bin/sh"]
