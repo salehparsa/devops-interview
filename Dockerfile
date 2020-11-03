@@ -13,3 +13,5 @@ RUN pip install -r requirements.txt
 COPY . /usr/src/app/
 
 RUN chmod +x /usr/src/app/app.py
+
+ENTRYPOINT ["/bin/sh"]
