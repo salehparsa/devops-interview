@@ -82,10 +82,10 @@ jobs:
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBECONFIG }}
         with:
-          args: kubectl apply -f k8s/postgres/. 
+          args: apply -f k8s/postgres/. 
       - name: Apply APP
         uses: steebchen/kubectl@master
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBECONFIG }}
         with:
-          args: kubectl apply -f k8s/app/.
+          args: apply -f k8s/app/.
