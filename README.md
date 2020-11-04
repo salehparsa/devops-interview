@@ -78,18 +78,20 @@ For CI/CD, we are using GitHub Action by setting up secret in setting of the rep
     
 ## Monitoring
 
-Since it is deployed on K8s we can setup monitoring and alerting via Grafana and Prometheus. I have working example [Here][https://github.com/salehparsa/terraform-linode-k8s] 
+Since it is deployed on K8s we can setup monitoring and alerting via Grafana and Prometheus. I have working example (Here)[https://github.com/salehparsa/terraform-linode-k8s] 
 
 ## Documentation
 
 Technologies:
-* Terraform - for main infrastructure of this project. Repository is available [Here][https://github.com/salehparsa/terraform-linode-k8s-action]
+* Terraform - for main infrastructure of this project. Repository is available (Here)[https://github.com/salehparsa/terraform-linode-k8s-action]
 * GitHub Action - For CI/CD
 * Docker - For making container
 
 How to Start:
 
 If you want to start locally, you can run `docker-compose up -d`. If you want to fork it, you just need to have a Linode API Key and setup the key and `kubeconfig` in your secrets of repository
+
+If you want to deploy from your machine, you can also use the `Makefile`.
 
 
 # License
