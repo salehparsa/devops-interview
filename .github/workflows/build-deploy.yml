@@ -69,10 +69,23 @@ jobs:
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
 
-      - uses: steebchen/kubectl@master
+  deployment:
+
+    needs: push
+
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@master
+      - name: Apply Database
+        uses: steebchen/kubectl@master
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBECONFIG }}
-      - name: Apply Database
-        run: make apply-db
-      - name: Apply App
-        run: make apply-app
+        with:
+          args: make apply-db
+      - name: Apply APP
+        uses: steebchen/kubectl@master
+        env:
+          KUBE_CONFIG_DATA: ${{ secrets.KUBECONFIG }}
+        with:
+          args: make apply-app
