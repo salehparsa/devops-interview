@@ -69,7 +69,7 @@ jobs:
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
       - name: Login to Kubernetese
-        run: echo "${{ secrets.KUBECONFIG }}" | export KUBECONFIG=${{ secrets.KUBECONFIG }}
+        run: export KUBECONFIG=${{ secrets.KUBECONFIG }}
       - name: Apply Database
         run: make apply-db
       - name: Apply App
