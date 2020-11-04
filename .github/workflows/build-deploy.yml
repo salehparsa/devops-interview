@@ -1,4 +1,4 @@
-name: Docker
+name: Build Docker and Deploy on K8s
 
 on:
   push:
@@ -68,3 +68,7 @@ jobs:
           echo VERSION=$VERSION
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
+      - name: Apply Database
+        run: make apply-db
+      - name: Apply App
+        run: make apply-app
