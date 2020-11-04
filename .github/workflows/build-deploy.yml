@@ -71,8 +71,6 @@ jobs:
       - uses: steebchen/kubectl@master
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBECONFIG }}
-        with:
-          args: set image --record deployment/my-app container=${{ github.repository }}:${{ github.sha }}
       - name: verify deployment
         uses: steebchen/kubectl@master
         env:
@@ -80,9 +78,7 @@ jobs:
           KUBECTL_VERSION: "1.15"
         with:
           args: '"rollout status deployment/app"'
-        - name: Login to Kubernetese
-          run: export KUBECONFIG=${{ secrets.KUBECONFIG }}
-        - name: Apply Database
-          run: make apply-db
-        - name: Apply App
-          run: make apply-app
+      - name: Apply Database
+        run: make apply-db
+      - name: Apply App
+        run: make apply-app
